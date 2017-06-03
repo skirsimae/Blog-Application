@@ -1,0 +1,16 @@
+doctype html
+html
+	head
+		title Log in
+	body
+
+		if(message)
+			h4 #{message}
+		br
+		form(action='/login' method='POST' autocomplete='off')
+			div
+				input(name='name' type='text' placeholder='Username')
+				br
+				input(name='password' type='password' placeholder='Password')
+				br
+				button(type='Submit') Log in!
