@@ -3,9 +3,12 @@ html
 	head
 		title Home
 	body
+		if(message)
+		h4 #{message}
+		br
 		h3 Welcome to the Blog Application! Please log in or register.
+			br
 			br
 			a(href='/login') Log in
 			br
 			a(href='/register') Register
-		h2#error-message= message
