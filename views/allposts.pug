@@ -1,0 +1,34 @@
+doctype html
+html
+	head
+		title Posts
+	body
+		if message
+			h4 #{message} 
+		br
+		a(href='/profile') My profile
+		br
+		a(href='/myposts') My posts
+		br
+		a(href='/logout') Log out
+		br
+		h2 All posts:
+		each post in posts
+			each user in users
+				if post.userId === user.id
+					p #{user.name} posted:					
+					p Title: #{post.title}
+					p Post: #{post.body}
+			form(action='/allposts' method='post')
+				label Comment: 
+				br
+				input(type='hidden' value=post.id, name='postId')
+				textarea(name='body' type='text' placeholder='leave your comment')
+				br
+				button(type='submit') Comment
+				br
+			each comment in post.comments
+				each user in users
+					if comment.userId === user.id
+						p #{user.name} comments: #{comment.body}
+			br

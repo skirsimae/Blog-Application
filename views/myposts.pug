@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		title Your posts
+	body
+		if message
+			h4 #{message} 
+		br
+		a(href='/profile') My profile
+		br
+		a(href='/allposts') All posts
+		br
+		a(href='/logout') Log out
+		h2 Here are all your posts.
+		each post in posts
+			p Title: #{post.title}
+			p Post: #{post.body}
+
+
+

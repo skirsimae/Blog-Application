@@ -1,9 +1,27 @@
 doctype html
 html
 	head
+		title My profile
 	body
-		p Welcome #{user.name}
-		
-		a(href='/messages') Messages
+		if message
+			h4 #{message} 
+			br
+		if user
+			h2 Welcome #{user.name}!
+			br
+		else
+			h2 Welcome new person!
+			br
+		a(href='/posts') Create a post
+		br
+		a(href='/allposts') All posts
 		br
 		a(href='/logout') Log out
+		br
+
+
+
+		
+
+
+

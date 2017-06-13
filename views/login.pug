@@ -3,8 +3,10 @@ html
 	head
 		title Log in
 	body
-
-		if(message)
+		br
+		h3 Hi there! Please log in!
+		br
+		if message
 			h4 #{message}
 		br
 		form(action='/login' method='POST' autocomplete='off')
@@ -14,4 +16,8 @@ html
 				input(name='loginPassword' type='password' placeholder='your password')
 				br
 				button(type='Submit') Log in! 
+				br
+		br
+		a(href='/register') Register instead
+		
 				
