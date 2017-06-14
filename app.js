@@ -3,6 +3,7 @@ var app = express();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var bcrypt = require('bcrypt-nodejs');
 
 app.use(cookieParser());
 app.use(session({
@@ -22,30 +23,18 @@ var sequelize = new Sequelize('postgres://' + process.env.POSTGRES_USER + ':' + 
 
 sequelize.sync()
 var User = sequelize.define('user', {
-    name: {
-        type: Sequelize.STRING,
-    },
-    email: {
-        type: Sequelize. STRING,
-    },
-    password: {
-        type: Sequelize.STRING,
-    },
+    name: Sequelize.STRING,
+    email: Sequelize. STRING,
+    password: Sequelize.STRING,
 });
 
 var Post = sequelize.define('post', {
-    title: {
-        type: Sequelize.STRING,
-    },
-    body: {
-        type: Sequelize.STRING,
-    },
+    title: Sequelize.STRING,
+    body: Sequelize.STRING,
 });
 
 var Comment = sequelize.define('comment', {
-    body: {
-        type: Sequelize.STRING,
-    },
+    body: Sequelize.STRING,
 });
 
 User.hasMany(Post);
@@ -66,7 +55,6 @@ app.get('/home', function (req, res) {
 
 //Profile page
 app.get('/profile', function(req, res){
-
     var user = req.session.user;
 
     if(user === undefined){
@@ -112,14 +100,20 @@ app.post('/register', function(req,res) {
                 return;
             }
             else {
-                User.create({
-                    name: newUser,
-                    email: newEmail,
-                    password: newPassword
-                }) 
-                .then(function() {
-                    req.session.user = user;
-                    res.redirect('/profile');  
+                bcrypt.hash(newPassword, null, null, function(err, hash) {
+                    if (err) {
+                        throw err;
+                    } else {
+                        User.create({
+                            name: newUser,
+                            email: newEmail,
+                            password: hash
+                        }) 
+                        .then(function() {
+                            req.session.user = user;
+                            res.redirect('/profile');  
+                        })
+                    };
                 });
             };
         });       
@@ -146,16 +140,29 @@ app.post('/login', function(req, res){
             email: loginEmail
         }
     }).then(function(user){
-        if(user !== null && loginPassword == user.password) {
-            req.session.user = user;
-            res.redirect('/profile');
-        } else {
-            res.render('login', {
-                message:'Invalid email or password, please try again or register.'
-            });  
-        };
+        var hash = user.password;
+        console.log('Hash: '+hash);
+        bcrypt.compare(loginPassword, hash, function(err, result) {
+            if(err) {
+                console.log(err);
+                res.render('login', {
+                    message:'Invalid email or password, please try again or register.'
+                });
+            }
+            else {
+                // if(user !== null && loginPassword == user.password) {
+                    req.session.user = user;
+                    res.redirect('/profile'); 
+                // }
+                // else {
+                //     res.render('login', {
+                //         message:'Invalid email or password, please try again or register.'
+                //     }); 
+                // }
+            };
+        });
     });
-});
+})
 
 //Log out page
 app.get('/logout', function(req, res){
@@ -198,16 +205,16 @@ app.get('/myposts', function(req, res){
         Post.findAll({
             where: {
             userId: user.id
-            // username: user.name
         },
             include: [{
             model: User
             }]
         })
         .then (posts => {
-            res.render('myposts', {posts: posts})
+            res.render('myposts', {
+                posts: posts
+            });
         });
-
     };
 })
 
@@ -280,7 +287,7 @@ app.post('/allposts', function(req, res) {
 
 
 //Listen to the server
-const server = app.listen(8080, () => {
+const server = app.listen(8000, () => {
     console.log(`server has started ${server.address().port}`)
 })
 

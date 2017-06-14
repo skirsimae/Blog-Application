@@ -5,10 +5,8 @@ html
 	body
 		br
 		h3 Hi there! Please log in!
-		br
 		if message
 			h4 #{message}
-		br
 		form(action='/login' method='POST' autocomplete='off')
 			div
 				input(name='loginEmail' type='text' placeholder='your email address')
