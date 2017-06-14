@@ -3,15 +3,19 @@ html
 	head
 		title Register
 	body
-		if(message)
-			h4 #{message}
+		if message
+			h4 #{message} 
+			a(class='button' href='/login') Log in instead
+		br
+		h3 Please register, you will not regret!
 		br
 		form(action='/register' method='POST' autocomplete='off')
 			div
-				input(name='name' type='text' placeholder='Username')
+				input(name='newUser' type='text' placeholder='choose an username')
 				br
-				input(name='email' type='text' placeholder='Email')
+				input(name='newEmail' type='text' placeholder='fill in your email address')
 				br
-				input(name='password' type='password' placeholder='Password')
+				input(name='newPassword' type='password' placeholder='choose a password')
 				br
-				button(type='Submit') Register!
+				button(type='Submit') Register
+

@@ -3,14 +3,19 @@ html
 	head
 		title Log in
 	body
-
-		if(message)
-			h4 #{message}
 		br
+		h3 Hi there! Please log in!
+		if message
+			h4 #{message}
 		form(action='/login' method='POST' autocomplete='off')
 			div
-				input(name='name' type='text' placeholder='Username')
+				input(name='loginEmail' type='text' placeholder='your email address')
 				br
-				input(name='password' type='password' placeholder='Password')
+				input(name='loginPassword' type='password' placeholder='your password')
 				br
-				button(type='Submit') Log in!
+				button(type='Submit') Log in! 
+				br
+		br
+		a(href='/register') Register instead
+		
+				

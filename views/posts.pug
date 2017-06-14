@@ -1,0 +1,38 @@
+doctype html
+html
+	head
+		title Posts
+	body
+		if message 
+			h4 #{message} 
+		br
+		a(href='/profile') My profile
+		br
+		a(href='/logout') Log out
+		br
+		a(href='/allposts') All posts
+		h3 Create a post:
+		form(action='/posts' method='post' autocomplete='off')
+			//- label title:
+			input(name='title' type='text' placeholder='insert your title')
+			br
+			br
+			//- label message: 
+			textarea(name='body' type='text' placeholder='leave your post')
+			br
+			button(type='submit') Post
+		br
+
+
+
+				
+
+
+
+
+
+
+
+
+
+

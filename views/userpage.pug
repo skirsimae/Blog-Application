@@ -1,0 +1,70 @@
+//- doctype html
+//- html
+//- 	head
+//- 		title Users page
+//- 	body
+//- 		p Welcome #{user.name}
+		
+//- 		a(href='/home') Home
+//- 		br
+//- 		a(href='/logout') Log out
+//- 		br
+//- 		h2 All posts:
+//- 		each post in allPosts
+//- 			li
+//- 				|	#[a(href="/posts/#{post.id}") #{post.title}]
+//- 				|	Author: #{post.name}
+//- 				br
+//- 				br
+//- 				|	#{post.body}
+//- 				br
+//- 		h2 My posts:
+//- 		each post in ownPosts
+//- 			li
+//- 				|	#[a(href="/posts/#{post.id}") #{post.title}]
+//- 				br
+//- 				br
+//- 				|	#{post.body}
+//- 				br
+				
+doctype html
+html(lang="en")
+	head
+		//- link(rel='stylesheet', href='/style.css', type = 'text/css')
+		//- script(src='https://code.jquery.com/jquery-2.2.0.min.js')
+		//- script(type='text/javascript' src="../commentCount.js")
+	body
+		div.bodydiv
+		div.bodyTextdiv
+			a(href='/') Home
+			br
+			br 
+			h1 Welcome to the Awesome Blog
+			br
+			a(href='/logout') Logout
+			br 
+			a(href='/user') Profile
+			br 
+			div#columnleft
+				h2 All posts:
+				each post in allPosts
+					li 
+						|	#[a(href="/posts/#{post.id}") #{post.title}]
+						|	Author: #{post.username}			
+						br
+						br 
+						|	#{post.body}
+						br
+						p#date #{post.timeStamp}
+						//- p#count 
+			div#columnright
+				h2 My posts:
+				each post in ownPosts
+					li 
+						|	#[a(href="/posts/#{post.id}") #{post.title}]
+						br
+						br 
+						|	#{post.body}
+						br
+						p#date #{post.timeStamp}
+						//- p#count 
