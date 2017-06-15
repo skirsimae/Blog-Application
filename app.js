@@ -23,6 +23,8 @@ app.use(express.static('./public/css'))
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('postgres://' + process.env.POSTGRES_USER + ':' + process.env.POSTGRES_PASSWORD + '@localhost/postgres');
 
+
+//Define tables
 sequelize.sync()
 var User = sequelize.define('user', {
     name: Sequelize.STRING,
@@ -39,6 +41,8 @@ var Comment = sequelize.define('comment', {
     body: Sequelize.STRING,
 });
 
+
+//Connections between tables
 User.hasMany(Post);
 User.hasMany(Comment);
 
@@ -71,7 +75,7 @@ app.get('/profile', function(req, res) {
 });
 
 
-//Registration page
+//Registration 
 app.get('/register', function(req, res) {
     res.render('register')
 });
@@ -120,7 +124,7 @@ app.post('/register', function(req, res) {
 });
 
 
-//Login page
+//Log in
 app.get('/login', function(req, res) {
     res.render('login')
 });
@@ -140,23 +144,25 @@ app.post('/login', function(req, res) {
             email: loginEmail
         }
     }).then(function(user) {
-        var hash = user.password;
+        var hash = user.password
+
         bcrypt.compare(loginPassword, hash, function(err, result) {
             if (err) {
                 console.log(err);
                 res.render('login', {
                     message: 'Invalid email or password, please try again or register.'
                 });
-            } else {
-                req.session.user = user;
-                res.redirect('/profile');
+            } 
+            if(result === true) {
+                req.session.user = user
+                res.redirect('/profile')
             };
         });
     });
 })
 
 
-//Log out page
+//Log out 
 app.get('/logout', function(req, res) {
     req.session.destroy(function(err) {
         if (err) {
@@ -169,7 +175,7 @@ app.get('/logout', function(req, res) {
 });
 
 
-//Create a post page
+//Create a post 
 app.get('/posts', function(req, res){
     var user = req.session.user
     
@@ -208,6 +214,7 @@ app.post('/posts', function(req, res){
 })
 
 
+//Posts from the logged in user
 app.get('/myposts', function(req, res){
     var user = req.session.user
     
@@ -234,6 +241,7 @@ app.get('/myposts', function(req, res){
 })
 
 
+//Posts from all users
 app.get('/allposts', function(req, res) {
     var user = req.session.user
     
@@ -244,9 +252,6 @@ app.get('/allposts', function(req, res) {
     }
     else {
         Post.findAll({
-            // where: {
-            //     userId: user.id
-            // },
             include: [{
                 model: Comment},
                 { model: User
@@ -264,6 +269,7 @@ app.get('/allposts', function(req, res) {
 })
 
 
+//Leave messages
 app.post('/allposts', function(req, res) {
     var user = req.session.user
     var body = req.body.body
