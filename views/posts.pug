@@ -1,16 +1,17 @@
 doctype html
 html
 	head
-		title Posts
+		title All posts
 	body
 		if message 
 			h4 #{message} 
 		br
 		a(href='/profile') My profile
 		br
+		a(href='/allposts') All posts
+		br
 		a(href='/logout') Log out
 		br
-		a(href='/allposts') All posts
 		h3 Create a post:
 		form(action='/posts' method='post' autocomplete='off')
 			input(name='title' type='text' placeholder='insert your title')
