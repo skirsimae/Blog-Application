@@ -172,7 +172,7 @@ app.get('/logout', function(req, res) {
             message: "Successfully logged out."
         });
     });
-});
+})
 
 
 //Create a post 
