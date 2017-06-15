@@ -50,14 +50,14 @@ Comment.belongsTo(Post);
 
 
 //Homepage
-app.get('/home', function(req, res) {
+app.get('/', function(req, res) {
     res.render('index')
 });
 
 
 //Profile page
 app.get('/profile', function(req, res) {
-    var user = req.session.user;
+    var user = req.session.user
 
     if (user === undefined) {
         res.render('login', {
@@ -126,8 +126,8 @@ app.get('/login', function(req, res) {
 });
 
 app.post('/login', function(req, res) {
-    var loginEmail = req.body.loginEmail;
-    var loginPassword = req.body.loginPassword;
+    var loginEmail = req.body.loginEmail
+    var loginPassword = req.body.loginPassword
 
     if (loginEmail.length === 0 || loginPassword.length === 0) {
         res.render('login', {
@@ -141,7 +141,6 @@ app.post('/login', function(req, res) {
         }
     }).then(function(user) {
         var hash = user.password;
-        console.log('Hash: ' + hash);
         bcrypt.compare(loginPassword, hash, function(err, result) {
             if (err) {
                 console.log(err);
@@ -171,82 +170,90 @@ app.get('/logout', function(req, res) {
 
 
 //Create a post page
-app.get('/posts', function(req, res) {
-    var user = req.session.user;
-
+app.get('/posts', function(req, res){
+    var user = req.session.user
+    
     if (user === undefined) {
         res.render('login', {
-            message: 'Please log in.'
+            message:'Please log in.'
+        });  
+    }
+    else {
+        res.render('posts', {
         });
-    } else {
-        res.render('posts', {});
     };
 });
 
 
-//The post page of the logged in user
-app.get('/myposts', function(req, res) {
-    var user = req.session.user;
-
+app.post('/posts', function(req, res){
+    var user = req.session.user
+    var title = req.body.title
+    var body = req.body.body
+    
     if (user === undefined) {
         res.render('login', {
-            message: 'Please log in.'
-        });
-    } else {
-        Post.findAll({
-            where: {
-                userId: user.id
-            },
-            include: [{
-                model: User
-            }]
+            message:'Please log in.'
+        });  
+    }
+    else {
+        Post.create({
+            title: title,
+            body: body,
+            userId: user.id
         })
-        .then(posts => {
-            res.render('myposts', {
-                posts: posts
-            });
+        .then (posts => {
+            res.redirect('/myposts')
         });
     };
 })
 
-app.post('/posts', function(req, res) {
-    var user = req.session.user
 
-    Post.create({
-            title: req.body.title,
-            body: req.body.body,
+app.get('/myposts', function(req, res){
+    var user = req.session.user
+    
+    if (user === undefined) {
+        res.render('login', {
+            message:'Please log in.'
+        });  
+    }
+    else {
+        Post.findAll({
+            where: {
             userId: user.id
+        },
+            include: [{
+            model: User
+            }]
         })
-        .then(posts => {
-            res.redirect('/myposts')
+        .then (posts => {
+            res.render('myposts', {
+                posts: posts
+            })
         });
+    };
 })
 
 
-//All posts from all users page
 app.get('/allposts', function(req, res) {
     var user = req.session.user
-
+    
     if (user === undefined) {
         res.render('login', {
-            message: 'Please log in.'
-        });
-    } else {
+            message:'Please log in.'
+        });  
+    }
+    else {
         Post.findAll({
-            where: {
-                userId: user.id
-            },
+            // where: {
+            //     userId: user.id
+            // },
             include: [{
-                    model: Comment
-                },
-                {
-                    model: User
-                }
-            ],
+                model: Comment},
+                { model: User
+            }],
         })
         .then((posts) => {
-            // console.log (posts)
-            User.findAll().then((users) => {
+            User.findAll().then((users)=>{
                 res.render('allposts', {
                     posts: posts,
                     users: users
@@ -256,23 +263,25 @@ app.get('/allposts', function(req, res) {
     };
 })
 
+
 app.post('/allposts', function(req, res) {
     var user = req.session.user
-
+    var body = req.body.body
+   
     if (user === undefined) {
         res.render('login', {
-            message: 'Please log in.'
-        });
-    } else {
+            message:'Please log in.'
+        });  
+    }
+    else {
         Comment.create({
-                body: req.body.body,
-                userId: user.id,
-                postId: req.body.postId
-            })
-            .then(comments => {
-                res.redirect('/allposts');
-            });
-
+            body: body,
+            userId: user.id,
+            postId: req.body.postId
+        })
+        .then (comments => {
+            res.redirect('/allposts');
+        });
     };
 })
 

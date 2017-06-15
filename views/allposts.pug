@@ -16,7 +16,7 @@ html
 		each post in posts
 			each user in users
 				if post.userId === user.id
-					p #{user.name} posted:					
+					p #{user.name} posted:	
 					p Title: #{post.title}
 					p Post: #{post.body}
 			form(action='/allposts' method='post')
@@ -26,9 +26,9 @@ html
 				textarea(name='body' type='text' placeholder='leave your comment')
 				br
 				button(type='submit') Comment
-				br
 			each comment in post.comments
 				each user in users
 					if comment.userId === user.id
 						p #{user.name} comments: #{comment.body}
+						br
 			
