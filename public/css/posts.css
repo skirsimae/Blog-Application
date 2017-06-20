@@ -29,7 +29,7 @@ h3 {
 
 
 input {
-	text-align: center;
+	text-align: left;
     font-family: 'Yu Gothic'; 
 	border-radius: 4px;
 }
@@ -43,7 +43,7 @@ button {
 
 textarea {
 	height: 150px;
-	width: 300px;   
+	width: 400px;   
 	border-radius: 4px;
 	resize: none;    
     font-family: 'Yu Gothic'; 
