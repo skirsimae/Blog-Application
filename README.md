@@ -23,10 +23,9 @@ Add encryption to your blog application so that your user's passwords are stored
 
 
 ## Screenshots:
-
-![homepage](https://user-images.githubusercontent.com/27499173/27332551-89b40bce-55c2-11e7-9a29-41f3beacebf1.PNG)
-![login](https://user-images.githubusercontent.com/27499173/27332554-8c23c00c-55c2-11e7-8bfa-629ede9b4d89.PNG)
-![register](https://user-images.githubusercontent.com/27499173/27332557-8e19d50e-55c2-11e7-96ec-a24266d3944e.PNG)
-![create](https://user-images.githubusercontent.com/27499173/27332561-8fabe34e-55c2-11e7-8db7-44f66cddf57d.PNG)
-![myposts](https://user-images.githubusercontent.com/27499173/27332565-9155db82-55c2-11e7-8628-308ac1f8dc47.PNG)
-![allposts](https://user-images.githubusercontent.com/27499173/27332568-93dba68e-55c2-11e7-8017-bd48a9319f90.PNG)
+![homepage](https://user-images.githubusercontent.com/27499173/27332681-2db382fe-55c3-11e7-9ea6-9d700b68e62a.PNG)
+![login](https://user-images.githubusercontent.com/27499173/27332684-2ff8aa30-55c3-11e7-837a-1d865c177aef.PNG)
+![register](https://user-images.githubusercontent.com/27499173/27332688-322cf2e8-55c3-11e7-920d-51bc394ae926.PNG)
+![create](https://user-images.githubusercontent.com/27499173/27332693-34408194-55c3-11e7-8fdb-cbf51990c4d8.PNG)
+![myposts](https://user-images.githubusercontent.com/27499173/27332696-362e7a56-55c3-11e7-8bb9-7e3337820912.PNG)
+![allposts](https://user-images.githubusercontent.com/27499173/27332698-37cfcb9e-55c3-11e7-9fea-cd4038010ba4.PNG)
