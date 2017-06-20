@@ -4,7 +4,6 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	margin: 0;
 }
 
 
@@ -59,11 +58,11 @@ h3 {
     color: white;
 }
 
-
+/*
 .details {
     text-align: center;
 }
-
+*/
 .intro-divider {
     text-align: center;
     width: 600px;
