@@ -8,8 +8,8 @@ html
 	body
 		div(class='topnav')
 			a(class='active' href='allposts') All posts
-			a(href='/posts') Create a post
 			a(href='/myposts') My posts
+			a(href='/posts') Create a post
 			a(href='/profile') Profile
 			a(href='/logout') Log out		
 		if message
@@ -26,7 +26,7 @@ html
 				form(action='/allposts' method='post')
 					h2 Leave your comment: 
 					input(type='hidden' value=post.id, name='postId')
-					textarea(name='body' type='text' placeholder='leave your comment here...')
+					textarea(name='body' type='text' placeholder='Leave your comment here...')
 					br
 					button(type='submit' class='action-button shadow animate blue') Comment
 				each comment in post.comments
