@@ -1,25 +1,26 @@
 doctype html
 html
 	head
+		style
+			include ../public/css/posts.css
+		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
 		title All posts
 	body
+		div(class='topnav')
+			a(class='active' href='posts') Create a post
+			a(href='/profile') Profile
+			a(href='/allposts') All posts
+			a(href='/logout') Log out
 		if message 
-			h4 #{message} 
-		br
-		a(href='/profile') My profile
-		br
-		a(href='/allposts') All posts
-		br
-		a(href='/logout') Log out
-		br
-		h3 Create a post:
+			h3 #{message} 
+		h2 Create a post
 		form(action='/posts' method='post' autocomplete='off')
-			input(name='title' type='text' placeholder='insert your title')
+			input(name='title' type='text' placeholder='insert your title...')
 			br
 			br
-			textarea(name='body' type='text' placeholder='leave your post')
+			textarea(name='body' type='text' placeholder='leave your post...')
 			br
-			button(type='submit') Post
+			button(type='submit' class='action-button shadow animate blue') Post your message!
 		
 
 

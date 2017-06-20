@@ -1,14 +1,22 @@
 doctype html
 html
 	head
+		style
+			include ../public/css/index.css
+		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
 		title Home
 	body
 		if message
-			h4 #{message}
+			h3 #{message}
 			br
-		h3 Welcome to the Blog Application! Please log in or register.
+		div(class="intro-message")
+			h1 Welcome to the Blog Application! 
 			br
-			br
-			a(href='/login') Log in
-			br
-			a(href='/register') Register
+			h2 Please log in or register.
+			hr(class="intro-divider")
+		div(class='buttons')
+			a(href='/login' class="action-button shadow animate yellow") Log in
+			a(href='/register' class="action-button shadow animate yellow") Register 
+
+
+

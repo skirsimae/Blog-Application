@@ -1,21 +1,25 @@
 doctype html
 html
 	head
+		style
+			include ../public/css/allposts.css
+		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
 		title Your posts
 	body
+		div(class='topnav')
+			a(class='active' href='myposts') My posts
+			a(href='/allposts') All posts
+			a(href='/profile') Profile
+			a(href='/logout') Log out
 		if message
-			h4 #{message} 
-		br
-		a(href='/profile') My profile
-		br
-		a(href='/allposts') All posts
-		br
-		a(href='/logout') Log out
-		h2 Here are all your posts.
-		each post in posts
-			p Title: #{post.title}
-			p Post: #{post.body}
-			br
+			h3 #{message} 
+		div(class='box') 
+			h1 Here are all your posts:
+			hr(class="intro-divider")
+			each post in posts
+				h4 Title: #{post.title}
+				h4 Post: #{post.body}
+				br
 
 
 

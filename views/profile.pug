@@ -1,24 +1,29 @@
 doctype html
 html
 	head
+		style
+			include ../public/css/profile.css
+		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
 		title My profile
 	body
+		div(class='topnav' id='font')
+			a(class='active' href='profile' id='font') Profile
+			a(href='/posts') Create a post
+			a(href='/allposts') All posts
+			a(href='/myposts') My posts
+			a(href='/logout') Log out
 		if message
-			h4 #{message} 
-			br
+			h3 #{message} 
 		if user
-			h2 Welcome #{user.name}!
-			br
+			h1 Welcome #{user.name}!
 		else
-			h2 Welcome new person!
-			br
-		a(href='/posts') Create a post
-		br
-		a(href='/allposts') All posts
-		br
-		a(href='/myposts') My posts
-		br
-		a(href='/logout') Log out
+			h1 Welcome new person!
+		div(class='details')
+			h2 Your details are: 
+			hr(class="intro-divider")
+			h4 Email: #{user.email}
+			h4 Username: #{user.name}
+
 
 
 

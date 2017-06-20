@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({
 app.set('views', './views');
 app.set('view engine', 'pug');
 
-app.use(express.static('./public/css'))
+app.use(express.static('public'))
 
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('postgres://' + process.env.POSTGRES_USER + ':' + process.env.POSTGRES_PASSWORD + '@localhost/postgres');
@@ -65,7 +65,7 @@ app.get('/profile', function(req, res) {
 
     if (user === undefined) {
         res.render('login', {
-            message: 'Please log in to view your profile.'
+            message: 'Please log in to view your profile'
         });
     } else {
         res.render('profile', {
@@ -94,7 +94,7 @@ app.post('/register', function(req, res) {
     .then(function(user) {
         if (newUser.length === 0 || newEmail.length === 0 || newPassword.length === 0) {
             res.render('register', {
-                message: 'Missing details, please try again.'
+                message: 'Missing details, please try again'
             });
             return;
         };
@@ -135,7 +135,7 @@ app.post('/login', function(req, res) {
 
     if (loginEmail.length === 0 || loginPassword.length === 0) {
         res.render('login', {
-            message: 'Username or password missing.'
+            message: 'Username or password missing'
         });
         return;
     };
@@ -150,7 +150,7 @@ app.post('/login', function(req, res) {
             if (err) {
                 console.log(err);
                 res.render('login', {
-                    message: 'Invalid email or password, please try again or register.'
+                    message: 'Invalid email or password, please try again or register'
                 });
             } 
             if(result === true) {
@@ -169,7 +169,7 @@ app.get('/logout', function(req, res) {
             throw err;
         }
         res.render('index', {
-            message: "Successfully logged out."
+            message: "Successfully logged out"
         });
     });
 })
@@ -181,7 +181,7 @@ app.get('/posts', function(req, res){
     
     if (user === undefined) {
         res.render('login', {
-            message:'Please log in.'
+            message:'Please log in'
         });  
     }
     else {
@@ -198,7 +198,7 @@ app.post('/posts', function(req, res){
     
     if (user === undefined) {
         res.render('login', {
-            message:'Please log in.'
+            message:'Please log in'
         });  
     }
     else {
@@ -220,7 +220,7 @@ app.get('/myposts', function(req, res){
     
     if (user === undefined) {
         res.render('login', {
-            message:'Please log in.'
+            message:'Please log in'
         });  
     }
     else {
@@ -247,7 +247,7 @@ app.get('/allposts', function(req, res) {
     
     if (user === undefined) {
         res.render('login', {
-            message:'Please log in.'
+            message:'Please log in'
         });  
     }
     else {
@@ -276,7 +276,7 @@ app.post('/allposts', function(req, res) {
    
     if (user === undefined) {
         res.render('login', {
-            message:'Please log in.'
+            message:'Please log in'
         });  
     }
     else {

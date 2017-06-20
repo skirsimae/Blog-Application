@@ -1,21 +1,24 @@
 doctype html
 html
 	head
+		style
+			include ../public/css/login.css
+		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
 		title Log in
 	body
-		br
-		h3 Hi there! Please log in!
+		div(class='topnav')
+			a(class='active' href='login') Log in
+			a(href='/register') Register
+			a(href='/') Home
 		if message
-			h4 #{message}
+			h3 #{message}
+		h2 Please provide your login details: 
 		form(action='/login' method='POST' autocomplete='off')
-			div
-				input(name='loginEmail' type='text' placeholder='your email address')
-				br
-				input(name='loginPassword' type='password' placeholder='your password')
-				br
-				button(type='Submit') Log in! 
-				br
-		br
-		a(href='/register') Register instead
+			input(name='loginEmail' type='text' placeholder='your email address...')
+			br
+			input(name='loginPassword' type='password' placeholder='your password...')
+			br
+			button(type='Submit' class='action-button shadow animate blue') Log in! 
+		
 		
 				

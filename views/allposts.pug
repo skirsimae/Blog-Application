@@ -1,34 +1,38 @@
 doctype html
 html
 	head
+		style
+			include ../public/css/allposts.css
+		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
 		title Posts
 	body
+		div(class='topnav')
+			a(class='active' href='allposts') All posts
+			a(href='/posts') Create a post
+			a(href='/myposts') My posts
+			a(href='/profile') Profile
+			a(href='/logout') Log out		
 		if message
-			h4 #{message} 
-		br
-		a(href='/profile') My profile
-		br
-		a(href='/myposts') My posts
-		br
-		a(href='/logout') Log out
-		br
-		h2 All posts:
-		each post in posts
-			each user in users
-				if post.userId === user.id
-					p #{user.name} posted:	
-					p Title: #{post.title}
-					p Post: #{post.body}
-			form(action='/allposts' method='post')
-				label Comment: 
-				br
-				input(type='hidden' value=post.id, name='postId')
-				textarea(name='body' type='text' placeholder='leave your comment')
-				br
-				button(type='submit') Comment
-			each comment in post.comments
+			h4 #{message}
+		div(class='box') 
+			h1 All posts
+			hr(class="intro-divider")
+			each post in posts
 				each user in users
-					if comment.userId === user.id
-						p #{user.name} comments: #{comment.body}
-						br
-			
+					if post.userId === user.id
+						h2 #{user.name} posted:	
+						h4 Title: #{post.title}
+						h4 Post: #{post.body}
+				form(action='/allposts' method='post')
+					h2 Leave your comment: 
+					input(type='hidden' value=post.id, name='postId')
+					textarea(name='body' type='text' placeholder='leave your comment here...')
+					br
+					button(type='submit' class='action-button shadow animate blue') Comment
+				each comment in post.comments
+					each user in users
+						if comment.userId === user.id
+							h4 #{user.name} comments: #{comment.body}
+							br
+							hr(class="intro-divider")
+
