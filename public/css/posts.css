@@ -1,5 +1,6 @@
 body {
-	background: url("../img/bottle2.jpg") no-repeat center center fixed; 
+	background: no-repeat center center fixed; 
+	background-image: linear-gradient(rgba(255,255,255,0.2),rgba(255,255,255,0.2)), url("../img/bottle2.jpg");
 	-webkit-background-size: cover
 	-moz-background-size: cover;
 	-o-background-size: cover;
