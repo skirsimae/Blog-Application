@@ -7,21 +7,24 @@ body {
 }
 
 
-.alposts, .comments {
-	float: center;
-}
-
-
 h1 {
 	margin-top: 40px;
 	text-align: center;
 	font-family: 'Pacifico', cursive;
-	font-weight: normal;
 	color: white;
+	font-weight: normal;
 }
 
 
-h2, h4 {
+h2 {
+	text-align: left;
+	font-family: 'Pacifico', cursive;
+	font-weight: normal;
+	color: black;
+	margin-left: 55px;
+}
+
+h4 {
 	text-align: left;
 	font-family: 'Pacifico', cursive;
 	font-weight: normal;
@@ -55,7 +58,7 @@ input {
 
 .box {
 	width: 600px;
-	border: 2px solid black;
+	border: 2px solid white;
 	padding: 25px;
 	margin: 25px;
 	margin-left: 300px;
@@ -69,13 +72,6 @@ input {
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
-/*.box2 {
-	width: 600px;
-	border: 10px solid green;
-	padding: 25px;
-	margin: 25px;
-}
-*/
 
 .action-button {
 	position: relative;

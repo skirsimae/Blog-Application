@@ -7,14 +7,14 @@ body {
 }
 
 
-h2, h4, form {
+h1, h2, h4, form {
 	text-align: center;
 	font-family: 'Pacifico', cursive;
 	font-weight: normal;
 }
 
 
-h2 {
+h1 {
 	margin-top: 40px;
 	color: white;
 }

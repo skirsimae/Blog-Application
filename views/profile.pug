@@ -12,12 +12,14 @@ html
 			a(href='/myposts') My posts
 			a(href='/allposts') All posts
 			a(href='/logout') Log out
+		br
 		if message
 			h3 #{message} 
 		if user
 			h1 Welcome #{user.name}!
 		else
 			h1 Welcome new person!
+		br
 		div(class='details')
 			h2 Your details are: 
 			hr(class="intro-divider")

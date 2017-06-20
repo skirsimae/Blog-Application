@@ -12,9 +12,12 @@ html
 			a(href='/myposts') My posts
 			a(href='/allposts') All posts
 			a(href='/logout') Log out
+		br
 		if message 
 			h3 #{message} 
-		h2 Create a post
+		br
+		br
+		h1 Create a post
 		form(action='/posts' method='post' autocomplete='off')
 			input(name='title' type='text' placeholder='Insert your title...')
 			br
