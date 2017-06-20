@@ -42,7 +42,7 @@ var Comment = sequelize.define('comment', {
 });
 
 
-//Connections between tables
+//Create connections between tables
 User.hasMany(Post);
 User.hasMany(Comment);
 
@@ -75,10 +75,11 @@ app.get('/profile', function(req, res) {
 });
 
 
-//Registration 
+//Registrate
 app.get('/register', function(req, res) {
     res.render('register')
 });
+
 
 app.post('/register', function(req, res) {
     var newUser = req.body.newUser
@@ -128,6 +129,7 @@ app.post('/register', function(req, res) {
 app.get('/login', function(req, res) {
     res.render('login')
 });
+
 
 app.post('/login', function(req, res) {
     var loginEmail = req.body.loginEmail
@@ -214,7 +216,7 @@ app.post('/posts', function(req, res){
 })
 
 
-//Posts from the logged in user
+//See posts from the logged in user
 app.get('/myposts', function(req, res){
     var user = req.session.user
     
@@ -241,7 +243,7 @@ app.get('/myposts', function(req, res){
 })
 
 
-//Posts from all users
+//See posts from all users
 app.get('/allposts', function(req, res) {
     var user = req.session.user
     
