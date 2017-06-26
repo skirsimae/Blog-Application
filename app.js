@@ -11,6 +11,7 @@ app.use(session({
     resave: true,
     saveUninitialized: false
 }));
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));

@@ -1,3 +1,9 @@
+@viewport {
+    zoom: 1.0;
+    width: device-width;
+}
+
+
 body {
 	background: url("../img/wooden.jpg") no-repeat center center fixed; 
 	-webkit-background-size: cover;
