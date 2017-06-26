@@ -22,23 +22,23 @@ app.set('view engine', 'pug');
 app.use(express.static('public'))
 
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('postgres://' + process.env.POSTGRES_USER + ':' + process.env.POSTGRES_PASSWORD + '@localhost/postgres');
+var db = new Sequelize('postgres://' + process.env.POSTGRES_USER + ':' + process.env.POSTGRES_PASSWORD + '@localhost/postgres');
 
 
 //Define tables
 sequelize.sync()
-var User = sequelize.define('user', {
+var User = db.define('user', {
     name: Sequelize.STRING,
     email: Sequelize.STRING,
     password: Sequelize.STRING,
 });
 
-var Post = sequelize.define('post', {
+var Post = db.define('post', {
     title: Sequelize.STRING,
     body: Sequelize.STRING,
 });
 
-var Comment = sequelize.define('comment', {
+var Comment = db.define('comment', {
     body: Sequelize.STRING,
 });
 
@@ -76,7 +76,7 @@ app.get('/profile', function(req, res) {
 });
 
 
-//Registrate
+//Register
 app.get('/register', function(req, res) {
     res.render('register')
 });
@@ -116,7 +116,6 @@ app.post('/register', function(req, res) {
                         password: hash
                     })
                     .then(function() {
-                        req.session.user = user;
                         res.redirect('/profile');
                     });
                 };
