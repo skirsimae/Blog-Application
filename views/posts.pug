@@ -4,8 +4,8 @@ html
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		style
 			include ../public/css/posts.css
-		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
-		title All posts
+		link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300i' rel='stylesheet' type='text/css')
+		title Create a post
 	body
 		div(class='topnav')
 			a(class='active' href='posts') Create a post
@@ -20,12 +20,12 @@ html
 		br
 		h1 Create a post
 		form(action='/posts' method='post' autocomplete='off')
-			input(name='title' type='text' placeholder='Insert your title...')
+			input(name='title' type='text' placeholder='Insert your title')
 			br
 			br
-			textarea(name='body' type='text' placeholder='Leave your message...')
+			textarea(name='body' type='text' placeholder='Leave your message')
 			br
-			button(type='submit' class='action-button shadow animate blue') Post your message!
+			button(type='submit' class='action-button shadow animate blue') Post your message
 		
 
 

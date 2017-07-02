@@ -1,10 +1,9 @@
 doctype html
 html
 	head
-		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		style
 			include ../public/css/login.css
-		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300i' rel='stylesheet' type='text/css')
 		title Log in
 	body
 		div(class='topnav')
@@ -15,11 +14,12 @@ html
 			h3 #{message}
 		h2 Please provide your login details: 
 		form(action='/login' method='POST' autocomplete='off')
-			input(name='loginEmail' type='text' placeholder='Your email address...')
+			input(name='loginEmail' type='text' placeholder='Your email address')
 			br
-			input(name='loginPassword' type='password' placeholder='Your password...')
 			br
-			button(type='Submit' class='action-button shadow animate blue') Log in! 
+			input(name='loginPassword' type='password' placeholder='Your password')
+			br
+			button(type='Submit' class='action-button shadow animate blue') Log in 
 		
 		
 				

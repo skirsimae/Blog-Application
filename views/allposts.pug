@@ -4,8 +4,8 @@ html
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		style
 			include ../public/css/allposts.css
-		link(href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css')
-		title Posts
+		link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300i' rel='stylesheet' type='text/css')
+		title All posts
 	body
 		div(class='topnav')
 			a(class='active' href='allposts') All posts
@@ -20,23 +20,22 @@ html
 		br
 		div(class='box') 
 			h1 All posts
-			hr(class="intro-divider")
 			each post in posts
 				each user in users
 					if post.userId === user.id
+						hr(class="intro-divider")
 						h2 #{user.name} posted:	
-						h4 Title: #{post.title}
-						h4 Post: #{post.body}
+						h3 <strong>Title:</strong> &nbsp; #{post.title}
+						h4 <strong>Post:</strong> &nbsp; #{post.body}
+						br
 				form(action='/allposts' method='post')
-					h2 Leave your comment: 
+					h3 Leave your comment: 
 					input(type='hidden' value=post.id, name='postId')
 					textarea(name='body' type='text' placeholder='Leave your comment here...')
 					br
-					button(type='submit' class='action-button shadow animate blue') Comment
+					button(type='submit' class='button') Comment
 				each comment in post.comments
 					each user in users
 						if comment.userId === user.id
-							h4 #{user.name} comments: #{comment.body}
-							br
-							hr(class="intro-divider")
+							h4 #{user.name} comments: &nbsp; #{comment.body}
 
