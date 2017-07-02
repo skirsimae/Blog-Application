@@ -1,21 +1,16 @@
-@viewport {
-    zoom: 1.0;
-    width: device-width;
-}
-
-
 body {
-	background: url("../img/together.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+    background: url("../img/together.jpg") no-repeat center center fixed; 
+    background-size: cover;
+    background-position:center top;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 
-h1, h2, h4, form {
+h1, h2, h4 {
     text-align: center;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Alegreya Sans', sans-serif;
     font-weight: normal;
 }
 
@@ -34,13 +29,18 @@ h3 {
     font-weight: normal;
 }
 
+h4 {
+    font-size: 20px;
+}
 
 .topnav {
     font-family: 'Yu Gothic'; 
     background-color: #f0f0f0;
     overflow: hidden;
+    padding: 0;
+    margin: auto;
+    width: 100%;
 }
-
 
 .topnav a {
     float: left;
@@ -52,27 +52,20 @@ h3 {
     font-size: 18px;
 }
 
-
 .topnav a:hover {
     background-color: #f8e7b2;
     color: black;
 }
-
 
 .topnav a.active {
     background-color: #F2CF66;
     color: white;
 }
 
-/*
-.details {
-    text-align: center;
-}
-*/
 .intro-divider {
     text-align: center;
     width: 600px;
-    border-top: 3px solid #f8f8f8;
+    border-top: 2px solid #f8f8f8;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 

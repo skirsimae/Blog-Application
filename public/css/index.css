@@ -1,25 +1,16 @@
-@viewport {
-    zoom: 1.0;
-    width: device-width;
-}
-
 body {
 	background: url("../img/index.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
+	background-position:center center;
 	padding: 50px;
 }
 
-
  h1, h2 {
-	font-family: 'Pacifico', cursive;	font-weight: 100;
+	font-family: 'Alegreya Sans', sans-serif;
 	color: #292424;
 	text-align: center;
 	margin: 0;
 }
-
 
 h3 {
     font-family: 'Yu Gothic'; 
@@ -28,21 +19,10 @@ h3 {
 	font-weight: normal;
 }
 
-
-h4 {
-    font-family: 'Yu Gothic'; 
-	color: red;
-	text-align: left;
-	font-weight: normal;
-	margin-top: 0px;
-}
-
-
 .intro-message {
 	position: relative;
 	padding-top: 10%;
 }
-
 
 .intro-divider {
 	text-align: center;
@@ -51,18 +31,15 @@ h4 {
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
-
 .login:hover, .register:hover {
 	padding: 2px 0 0 2px;  
 	transform: scale(1.1);
 }
 
-
 .animate{
 	transition: all 0.1s;
 	-webkit-transition: all 0.1s;
 }
-
 
 .buttons {
 	text-align: center;
@@ -74,8 +51,9 @@ h4 {
 	padding: 10px 40px;
 	margin: 0px 10px 10px 0px;
 	border-radius: 10px;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Alegreya Sans', sans-serif;
 	font-size: 25px;
+	font-weight: normal;
 	color: #FFF;
 	text-decoration: none;	
 }

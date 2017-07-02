@@ -1,28 +1,22 @@
-@viewport {
-    zoom: 1.0;
-    width: device-width;
-}
-
 body {
 	background: url("../img/together.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
+	background-position:center top;
+	width: 100%;
+	padding: 0;
+	margin: 0;
 }
 
-
-h2, form {
+form {
 	text-align: center;
-	font-family: 'Pacifico', cursive;
-	font-weight: normal;
 }
-
 
 h2 {
-	margin-top: 40px;
+	font-family: 'Alegreya Sans', sans-serif;
+	text-align: center;
+	font-weight: normal;
+	margin-top: 100px;
 }
-
 
 h3 {
     font-family: 'Yu Gothic'; 
@@ -31,33 +25,26 @@ h3 {
 	font-weight: normal;
 }
 
-
 input {
 	text-align: center;
     font-family: 'Yu Gothic'; 
 	border-radius: 4px;
+	height:30px;
+	width: 250px;
 }
-
-
-button {
-	margin-top: 20px;
-	color: #FFF;
-	text-decoration: none;	
-}
-
 
 .action-button {
 	position: relative;
 	padding: 2px 26px;
 	margin: 15px 10px 10px 0px;
 	border-radius: 10px;
-	font-family: 'Pacifico', cursive;
+    font-family: 'Yu Gothic'; 
 	font-size: 15px;
 	color: #FFF;
 	text-decoration: none;	
 	border-radius: 4px;
+    cursor: pointer;
 }
-
 
 .blue {
 	background-color: #3498DB;
@@ -65,36 +52,35 @@ button {
 	text-shadow: 0px -2px #2980B9;
 }
 
-
 .action-button:active {
 	transform: translate(0px,5px);
 	-webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }
 
-
 .topnav {
-    font-family: 'Yu Gothic'; 
-    background-color: #f0f0f0;
-    overflow: hidden;
+	font-family: 'Yu Gothic'; 
+	background-color: #f0f0f0;
+	overflow: hidden;
+	padding: 0;
+	margin: auto;
+	width: 100%;
 }
 
 .topnav a {
-    float: left;
-    display: block;
-    color: #210808;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 18px;
+	float: left;
+	display: block;
+	color: #210808;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 18px;
 }
-
 
 .topnav a:hover {
     background-color: #f8e7b2;
     color: black;
 }
-
 
 .topnav a.active {
     background-color: #F2CF66;

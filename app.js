@@ -26,7 +26,8 @@ var db = new Sequelize('postgres://' + process.env.POSTGRES_USER + ':' + process
 
 
 //Define tables
-sequelize.sync()
+db.sync()
+
 var User = db.define('user', {
     name: Sequelize.STRING,
     email: Sequelize.STRING,
@@ -116,7 +117,7 @@ app.post('/register', function(req, res) {
                         password: hash
                     })
                     .then(function() {
-                        res.redirect('/profile');
+                        res.redirect('/login');
                     });
                 };
             });
@@ -132,10 +133,10 @@ app.get('/login', function(req, res) {
 
 
 app.post('/login', function(req, res) {
-    var loginEmail = req.body.loginEmail
-    var loginPassword = req.body.loginPassword
+    var email = req.body.email
+    var password = req.body.password
 
-    if (loginEmail.length === 0 || loginPassword.length === 0) {
+    if (email.length === 0 || password.length === 0) {
         res.render('login', {
             message: 'Username or password missing'
         });
@@ -143,21 +144,30 @@ app.post('/login', function(req, res) {
     };
     User.findOne({
         where: {
-            email: loginEmail
-        }
-    }).then(function(user) {
-        var hash = user.password
-
-        bcrypt.compare(loginPassword, hash, function(err, result) {
+            email: email
+        } 
+    })
+    .then(function(user){
+        var hash = user.password;
+        console.log('Hash:' + hash);
+        bcrypt.compare(password, hash, function(err, result) {
             if (err) {
                 console.log(err);
                 res.render('login', {
                     message: 'Invalid email or password, please try again or register'
                 });
             } 
-            if(result === true) {
-                req.session.user = user
-                res.redirect('/profile')
+            else {
+                console.log(result);
+                if(result === true) {
+                    req.session.user = user;
+                    res.redirect('/profile');
+                }
+                 else {
+                    res.render('login', {
+                        message: 'Something went wrong, please try again or register'
+                    });
+                };
             };
         });
     });

@@ -1,29 +1,21 @@
-@viewport {
-    zoom: 1.0;
-    width: device-width;
-}
-
 body {
 	background: url("../img/wooden.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
+	width: 100%;
+	padding: 0;
+	margin: 0;
 }
-
 
 h1, h2, h4, form {
 	text-align: center;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Alegreya Sans', sans-serif;
 	font-weight: normal;
 }
 
-
 h1 {
 	margin-top: 40px;
-	color: white;
+	color: black;
 }
-
 
 h3 {
     font-family: 'Yu Gothic'; 
@@ -32,13 +24,14 @@ h3 {
 	font-weight: normal;
 }
 
-
 input {
 	text-align: left;
     font-family: 'Yu Gothic'; 
 	border-radius: 4px;
+	height:30px;
+	width: 250px;
+    padding-left: 10px;
 }
-
 
 button {
 	margin-top: 20px;
@@ -52,18 +45,20 @@ textarea {
 	border-radius: 4px;
 	resize: none;    
     font-family: 'Yu Gothic'; 
+    padding-left: 10px;
+    padding-top: 10px;
 }
-
 
 .action-button {
 	position: relative;
 	padding: 2px 26px;
 	margin: 15px 10px 10px 0px;
 	border-radius: 10px;
-	font-family: 'Pacifico', cursive;
+    font-family: 'Yu Gothic'; 
 	font-size: 15px;
 	color: #FFF;
-	text-decoration: none;	
+	text-decoration: none;
+    cursor: pointer;	
 }
 
 .blue{
@@ -72,20 +67,17 @@ textarea {
 	text-shadow: 0px -2px #2980B9;
 }
 
-
 .action-button:active{
 	transform: translate(0px,5px);
 	-webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }
 
-
 .topnav {
     font-family: 'Yu Gothic'; 
     background-color: #f0f0f0;
     overflow: hidden;
 }
-
 
 .topnav a {
     float: left;
@@ -97,12 +89,10 @@ textarea {
     font-size: 18px;
 }
 
-
 .topnav a:hover {
     background-color: #f8e7b2;
     color: black;
 }
-
 
 .topnav a.active {
     background-color: #F2CF66;

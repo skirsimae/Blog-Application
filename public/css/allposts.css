@@ -1,75 +1,66 @@
-@viewport {
-    zoom: 1.0;
-    width: device-width;
-}
-
-
 body {
 	background: url("../img/wooden.jpg") no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
+	width: 100%;
+	padding: 0;
+	margin: 0;
 }
-
 
 h1 {
 	margin-top: 40px;
 	text-align: center;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Alegreya Sans', sans-serif;
 	color: white;
 	font-weight: normal;
 }
 
-
 h2 {
 	text-align: left;
-	font-family: 'Pacifico', cursive;
-	font-weight: normal;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: bold;
 	color: black;
-	margin-left: 55px;
-}
-
-h4 {
-	text-align: left;
-	font-family: 'Pacifico', cursive;
-	font-weight: normal;
-	color: black;
-	margin-left: 55px;
-}
-
-
-form {
-	text-align: center;
-	margin-top: 0px;
-}
-
-
-h2 {
 	margin-top: 30px;
+	margin-left: 190px;
+	font-size: 30px;
 }
 
+h4, h3 {
+	text-align: left;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-weight: normal;
+	font-size: 23px;
+	color: black;
+	margin-left: 220px;}
+
+form h3 {
+	margin-left: 190px;	
+	font-weight: bold;
+}
 
 form {
-	margin-top: 20px;
+	font-family: 'Alegreya Sans', sans-serif;
+	text-align: center;
+	margin-top: 2px;
 }
-
 
 input {
 	text-align: center;
-    font-family: 'Yu Gothic'; 
+    font-family: 'Alegreya Sans', sans-serif; 
 	border-radius: 4px;
 }
 
-
 .box {
-	width: 600px;
-	border: 2px solid white;
 	padding: 25px;
-	margin: 25px;
-	margin-left: 300px;
+	text-align: center;
+	font-family: 'Alegreya Sans', sans-serif;
+	color: #fff;
+	margin: 40px auto;
+	background: rgba(22,22,22, 0.2);
+	width: 100%;
+	max-width: 900px;
+	border-radius: 5px;
+	padding-bottom: 32px;
 }
-
 
 .intro-divider {
 	text-align: center;
@@ -78,39 +69,27 @@ input {
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
-
-.action-button {
-	position: relative;
-	padding: 2px 26px;
-	margin: 15px 10px 10px 0px;
-	border-radius: 10px;
-	font-family: 'Pacifico', cursive;
-	font-size: 15px;
-	color: #FFF;
-	text-decoration: none;
+.button {
+	width: 80px;
+	height: 30px;
+	background-color: white;
+	border-radius: 7px;
+	font-family: 'Yu Gothic'; 
 }
 
-
-.blue {
-	background-color: #3498DB;
-	border-bottom: 5px solid #2980B9;
-	text-shadow: 0px -2px #2980B9;
+.button:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
 }
-
-
-.action-button:active {
-	transform: translate(0px,5px);
-	-webkit-transform: translate(0px,5px);
-	border-bottom: 1px solid;
-}
-
 
 .topnav {
-    font-family: 'Yu Gothic'; 
-    background-color: #f0f0f0;
-    overflow: hidden;
+	font-family: 'Yu Gothic'; 
+	background-color: #f0f0f0;
+	overflow: hidden;
+	padding: 0;
+	margin: auto;
+	width: 100%;
 }
-
 
 .topnav a {
     float: left;
@@ -122,23 +101,23 @@ input {
     font-size: 18px;
 }
 
-
 .topnav a:hover {
     background-color: #f8e7b2;
     color: black;
 }
-
 
 .topnav a.active {
     background-color: #F2CF66;
     color: white;
 }
 
-
 textarea {
 	height: 100px;
 	width: 500px;   
     border-radius: 4px;
     resize: none;    
-    font-family: 'Yu Gothic'; 
+	font-family: 'Yu Gothic'; 
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
 }
