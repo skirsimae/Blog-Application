@@ -4,7 +4,7 @@ html
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		style
 			include ../public/css/register.css
-		link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300i' rel='stylesheet' type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css')
 		title Register
 	body
 		div(class='topnav')
@@ -13,7 +13,7 @@ html
 			a(href='/') Home
 		if message
 			h3 #{message} 
-		h2 Register:
+		h1 Register:
 		form(action='/register' method='POST' autocomplete='off')
 			input(name='newUser' type='text' placeholder='Choose an username')
 			br

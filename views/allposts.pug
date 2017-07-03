@@ -4,7 +4,7 @@ html
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		style
 			include ../public/css/allposts.css
-		link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300i' rel='stylesheet' type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css')
 		title All posts
 	body
 		div(class='topnav')
@@ -32,6 +32,7 @@ html
 					h3 Leave your comment: 
 					input(type='hidden' value=post.id, name='postId')
 					textarea(name='body' type='text' placeholder='Leave your comment here...')
+					br
 					br
 					button(type='submit' class='button') Comment
 				each comment in post.comments

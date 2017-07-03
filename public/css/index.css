@@ -5,9 +5,10 @@ body {
 	padding: 50px;
 }
 
- h1, h2 {
-	font-family: 'Alegreya Sans', sans-serif;
+ h1 {
+	font-family: 'Slabo 27px', serif;
 	color: #292424;
+	font-size: 40px;
 	text-align: center;
 	margin: 0;
 }
@@ -21,7 +22,7 @@ h3 {
 
 .intro-message {
 	position: relative;
-	padding-top: 10%;
+	margin-top: 300px;
 }
 
 .intro-divider {
@@ -48,23 +49,20 @@ h3 {
 
 .action-button {
 	position: relative;
-	padding: 10px 40px;
+	padding: 10px 30px;
 	margin: 0px 10px 10px 0px;
 	border-radius: 10px;
-	font-family: 'Alegreya Sans', sans-serif;
-	font-size: 25px;
+    font-family: 'Yu Gothic'; 
+	font-size: 20px;
 	font-weight: normal;
-	color: #FFF;
+	color: black;
 	text-decoration: none;	
 }
-
 
 .yellow {
 	background-color: #F2CF66;
 	border-bottom: 5px solid #D1B358;
-	text-shadow: 0px -2px #D1B358;
 }
-
 
 .action-button:active {
 	transform: translate(0px,5px);

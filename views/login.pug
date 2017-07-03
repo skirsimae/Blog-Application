@@ -3,7 +3,7 @@ html
 	head
 		style
 			include ../public/css/login.css
-		link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300i' rel='stylesheet' type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css')
 		title Log in
 	body
 		div(class='topnav')
@@ -12,7 +12,7 @@ html
 			a(href='/') Home
 		if message
 			h3 #{message}
-		h2 Please provide your login details: 
+		h1 Please provide your login details: 
 		form(action='/login' method='POST' autocomplete='off')
 			input(name='email' type='text' placeholder='Your email address')
 			br

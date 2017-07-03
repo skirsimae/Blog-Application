@@ -8,7 +8,7 @@ body {
 
 h1, h2, h4, form {
 	text-align: center;
-	font-family: 'Alegreya Sans', sans-serif;
+	font-family: 'Slabo 27px', serif;
 	font-weight: normal;
 }
 
@@ -26,17 +26,19 @@ h3 {
 
 input {
 	text-align: left;
-    font-family: 'Yu Gothic'; 
+	font-family: 'Slabo 27px', serif;
+	font-size: 18px; 
 	border-radius: 4px;
-	height:30px;
-	width: 250px;
-    padding-left: 10px;
+	height:40px;
+	width: 270px;
+	padding-left: 10px;
 }
 
 button {
 	margin-top: 20px;
 	color: #FFF;
 	text-decoration: none;	
+	font-size: 20px;
 }
 
 textarea {
@@ -44,9 +46,10 @@ textarea {
 	width: 400px;   
 	border-radius: 4px;
 	resize: none;    
-    font-family: 'Yu Gothic'; 
-    padding-left: 10px;
-    padding-top: 10px;
+	font-family: 'Slabo 27px', serif;
+	font-size: 18px; 
+	padding-left: 10px;
+	padding-top: 10px;
 }
 
 .action-button {
@@ -54,7 +57,7 @@ textarea {
 	padding: 2px 26px;
 	margin: 15px 10px 10px 0px;
 	border-radius: 10px;
-    font-family: 'Yu Gothic'; 
+    font-family: 'Slabo 27px', serif; s
 	font-size: 15px;
 	color: #FFF;
 	text-decoration: none;

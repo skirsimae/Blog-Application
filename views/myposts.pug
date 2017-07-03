@@ -4,7 +4,7 @@ html
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		style
 			include ../public/css/myposts.css
-		link(href='https://fonts.googleapis.com/css?family=Alegreya+Sans:300i' rel='stylesheet' type='text/css')
+		link(href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css')
 		title My posts
 	body
 		div(class='topnav')
@@ -22,9 +22,9 @@ html
 			h1 Here are your posts:
 			hr(class="intro-divider")
 			each post in posts
+				br
 				h2 <strong>Title:</strong> &nbsp; #{post.title}
 				h2 <strong>Post:</strong> &nbsp; #{post.body}
-				br
 
 
 

@@ -11,11 +11,11 @@ form {
 	text-align: center;
 }
 
-h2 {
-	font-family: 'Alegreya Sans', sans-serif;
+h1 {
+	font-family: 'Slabo 27px', serif;
 	text-align: center;
 	font-weight: normal;
-	margin-top: 100px;
+	margin-top: 130px;
 }
 
 h3 {
@@ -27,20 +27,20 @@ h3 {
 
 input {
 	text-align: center;
-    font-family: 'Yu Gothic'; 
+	font-family: 'Slabo 27px', serif;
+	font-size: 18px; 
 	border-radius: 4px;
-	height:30px;
-	width: 250px;
+	height:40px;
+	width: 270px;
 }
-
 
 .action-button{
 	position: relative;
 	padding: 2px 26px;
 	margin: 15px 10px 10px 0px;
 	border-radius: 10px;
-    font-family: 'Yu Gothic'; 
-	font-size: 15px;
+    font-family: 'Slabo 27px', serif; 
+	font-size: 17px;
 	color: #FFF;
 	text-decoration: none;	
 	border-radius: 4px;
