@@ -1,5 +1,5 @@
 body {
-	background: url("../img/wooden.jpg") no-repeat center center fixed; 
+    background: url("../img/wooden.jpg") no-repeat center center fixed; 
     background-size: cover;
     width: 100%;
     padding: 0;
@@ -16,7 +16,7 @@ h1 {
 
 h2 {
     font-family: 'Slabo 27px', serif;
-	margin-top: 20px;
+    margin-top: 20px;
     text-align: left;
     font-weight: normal;
     color: black;
@@ -25,9 +25,9 @@ h2 {
 
 h3 {
     font-family: 'Yu Gothic'; 
-	text-align: center;
-	color: red;
-	font-weight: normal;
+    text-align: center;
+    color: red;
+    font-weight: normal;
 }
 
 .box {

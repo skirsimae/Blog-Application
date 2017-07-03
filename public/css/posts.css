@@ -18,7 +18,7 @@ h1 {
 }
 
 h3 {
-    font-family: 'Yu Gothic'; 
+	font-family: 'Yu Gothic'; 
 	text-align: center;
 	color: red;
 	font-weight: normal;
@@ -57,11 +57,11 @@ textarea {
 	padding: 2px 26px;
 	margin: 15px 10px 10px 0px;
 	border-radius: 10px;
-    font-family: 'Slabo 27px', serif; s
+	font-family: 'Slabo 27px', serif; s
 	font-size: 15px;
 	color: #FFF;
 	text-decoration: none;
-    cursor: pointer;	
+	cursor: pointer;	
 }
 
 .blue{
@@ -77,29 +77,29 @@ textarea {
 }
 
 .topnav {
-    font-family: 'Yu Gothic'; 
-    background-color: #f0f0f0;
-    overflow: hidden;
+	font-family: 'Yu Gothic'; 
+	background-color: #f0f0f0;
+	overflow: hidden;
 }
 
 .topnav a {
-    float: left;
-    display: block;
-    color: #210808;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 18px;
+	float: left;
+	display: block;
+	color: #210808;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 18px;
 }
 
 .topnav a:hover {
-    background-color: #f8e7b2;
-    color: black;
+	background-color: #f8e7b2;
+	color: black;
 }
 
 .topnav a.active {
-    background-color: #F2CF66;
-    color: white;
+	background-color: #F2CF66;
+	color: white;
 }
 
 

@@ -19,7 +19,7 @@ h1 {
 }
 
 h3 {
-    font-family: 'Yu Gothic'; 
+	font-family: 'Yu Gothic'; 
 	text-align: center;
 	color: red;
 	font-weight: normal;
@@ -39,12 +39,12 @@ input {
 	padding: 2px 26px;
 	margin: 15px 10px 10px 0px;
 	border-radius: 10px;
-    font-family: 'Slabo 27px', serif; 
+	font-family: 'Slabo 27px', serif; 
 	font-size: 17px;
 	color: #FFF;
 	text-decoration: none;	
 	border-radius: 4px;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .blue{
@@ -79,11 +79,11 @@ input {
 }
 
 .topnav a:hover {
-    background-color: #f8e7b2;
-    color: black;
+	background-color: #f8e7b2;
+	color: black;
 }
 
 .topnav a.active {
-    background-color: #F2CF66;
-    color: white;
+	background-color: #F2CF66;
+	color: white;
 }
