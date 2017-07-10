@@ -3,7 +3,9 @@ var app = express();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var bcrypt = require('bcrypt-nodejs');
+var bcrypt = require('bcrypt');
+var pug = require('pug');
+
 
 app.use(cookieParser());
 app.use(session({
@@ -11,15 +13,15 @@ app.use(session({
     resave: true,
     saveUninitialized: false
 }));
-
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(express.static('public'));
+
 
 app.set('views', './views');
 app.set('view engine', 'pug');
 
-app.use(express.static('public'))
 
 var Sequelize = require('sequelize');
 var db = new Sequelize('postgres://' + process.env.POSTGRES_USER + ':' + process.env.POSTGRES_PASSWORD + '@localhost/postgres');
@@ -58,7 +60,7 @@ Comment.belongsTo(Post);
 //Homepage
 app.get('/', function(req, res) {
     res.render('index')
-});
+})
 
 
 //Profile page
@@ -66,21 +68,17 @@ app.get('/profile', function(req, res) {
     var user = req.session.user
 
     if (user === undefined) {
-        res.render('login', {
-            message: 'Please log in to view your profile'
-        });
+        res.render('login', {message: 'Please log in to view your profile'});
     } else {
-        res.render('profile', {
-            user: user
-        });
+        res.render('profile', {user: user});
     };
-});
+})
 
 
 //Register
 app.get('/register', function(req, res) {
     res.render('register')
-});
+})
 
 
 app.post('/register', function(req, res) {
@@ -96,15 +94,11 @@ app.post('/register', function(req, res) {
     })
     .then(function(user) {
         if (newUser.length === 0 || newEmail.length === 0 || newPassword.length === 0) {
-            res.render('register', {
-                message: 'Missing details, please try again'
-            });
+            res.render('register', {message: 'Missing details, please try again'});
             return;
         };
         if (user != null && user.name === newUser) {
-            res.render('register', {
-                message: 'Username already taken, please log in or choose another username'
-            });
+            res.render('register', {message: 'Username already taken, please log in or choose another username'});
             return;
         } else {
             bcrypt.hash(newPassword, null, null, function(err, hash) {
@@ -123,13 +117,13 @@ app.post('/register', function(req, res) {
             });
         };
     });
-});
+})
 
 
 //Log in
 app.get('/login', function(req, res) {
     res.render('login')
-});
+})
 
 
 app.post('/login', function(req, res) {
@@ -137,39 +131,35 @@ app.post('/login', function(req, res) {
     var password = req.body.password
 
     if (email.length === 0 || password.length === 0) {
-        res.render('login', {
-            message: 'Username or password missing'
-        });
+        res.render('login', {message: 'Username or password missing'});
         return;
     };
+
     User.findOne({
         where: {
             email: email
         } 
     })
-    .then(function(user){
-        var hash = user.password;
-        console.log('Hash:' + hash);
-        bcrypt.compare(password, hash, function(err, result) {
-            if (err) {
-                console.log(err);
-                res.render('login', {
-                    message: 'Invalid email or password, please try again or register'
-                });
-            } 
-            else {
-                console.log(result);
+    .then (function(user) {
+        if(user == null) {
+            res.render('login', {message: 'User not in the system, please register'});
+            return;  
+        }
+        else {
+            var hash = user.password
+            bcrypt.compare(password, hash, function(err, result) {
+                if (err) {
+                    res.render('login', {message: 'Invalid email or password, please try again or register'});
+                }
                 if(result === true) {
                     req.session.user = user;
                     res.redirect('/profile');
                 }
-                 else {
-                    res.render('login', {
-                        message: 'Something went wrong, please try again or register'
-                    });
+                else {
+                    res.render('login', {message: 'Something went wrong, please try again or register'});
                 };
-            };
-        });
+            });
+        };
     });
 })
 
@@ -180,9 +170,7 @@ app.get('/logout', function(req, res) {
         if (err) {
             throw err;
         }
-        res.render('index', {
-            message: "Successfully logged out"
-        });
+        res.render('index', {message: "Successfully logged out"});
     });
 })
 
@@ -192,15 +180,12 @@ app.get('/posts', function(req, res){
     var user = req.session.user
     
     if (user === undefined) {
-        res.render('login', {
-            message:'Please log in'
-        });  
+        res.render('login', {message:'Please log in'});  
     }
     else {
-        res.render('posts', {
-        });
+        res.render('posts');
     };
-});
+})
 
 
 app.post('/posts', function(req, res){
@@ -209,9 +194,7 @@ app.post('/posts', function(req, res){
     var body = req.body.body
     
     if (user === undefined) {
-        res.render('login', {
-            message:'Please log in'
-        });  
+        res.render('login', {message:'Please log in'});  
     }
     else {
         Post.create({
@@ -219,7 +202,7 @@ app.post('/posts', function(req, res){
             body: body,
             userId: user.id
         })
-        .then (posts => {
+        .then (function(posts) {
             res.redirect('/myposts')
         });
     };
@@ -231,9 +214,7 @@ app.get('/myposts', function(req, res){
     var user = req.session.user
     
     if (user === undefined) {
-        res.render('login', {
-            message:'Please log in'
-        });  
+        res.render('login', {message:'Please log in'});  
     }
     else {
         Post.findAll({
@@ -244,10 +225,8 @@ app.get('/myposts', function(req, res){
             model: User
             }]
         })
-        .then (posts => {
-            res.render('myposts', {
-                posts: posts
-            })
+        .then (function(posts) {
+            res.render('myposts', {posts: posts})
         });
     };
 })
@@ -258,19 +237,15 @@ app.get('/allposts', function(req, res) {
     var user = req.session.user
     
     if (user === undefined) {
-        res.render('login', {
-            message:'Please log in'
-        });  
+        res.render('login', {message:'Please log in'});  
     }
     else {
         Post.findAll({
-            include: [{
-                model: Comment},
-                { model: User
-            }],
+            include: [{model: Comment}, {model: User}],
         })
-        .then((posts) => {
-            User.findAll().then((users)=>{
+        .then (function(posts) {
+            User.findAll()
+            .then (function(users) {
                 res.render('allposts', {
                     posts: posts,
                     users: users
@@ -297,7 +272,7 @@ app.post('/allposts', function(req, res) {
             userId: user.id,
             postId: req.body.postId
         })
-        .then (comments => {
+        .then (function(comments) {
             res.redirect('/allposts');
         });
     };
